@@ -49,6 +49,25 @@
       color: green;
       font-weight: bold;
     }
+    .flash-button, .manual-button {
+      margin: 20px 10px 0;
+      padding: 15px 30px;
+      background-color: #28a745;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .flash-button {
+      animation: flash 1s infinite;
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
   </style>
 </head>
 <body>
@@ -67,6 +86,10 @@
   <div id="unlockSection">
     <p>✅ Thank you for subscribing!</p>
     <div class="coupon-code">GPZ2025</div>
+    <br />
+    <a href="https://gamesplanet13.github.io/order/" class="flash-button" target="_blank">Use this code here – Click Now</a>
+    <br />
+    <a href="https://gamesplanet13.github.io/Ordernow" class="manual-button" target="_blank">Place Manual or Custom Order</a>
   </div>
 
   <script>
@@ -75,7 +98,7 @@
     function markSubscribed(index) {
       status[index - 1] = true;
       const suffix = index === 1 ? '1st' : index === 2 ? '2nd' : '3rd';
-      document.getElementById(`status${index}`).innerText = `${suffix} done`;
+      document.getElementById(`status${index}`).innerText = `${suffix} done ✅`;
       if (status.every(Boolean)) {
         document.getElementById('subscribeSection').style.display = 'none';
         document.getElementById('unlockSection').style.display = 'block';
